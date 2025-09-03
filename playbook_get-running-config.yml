@@ -1,6 +1,6 @@
 ---
 - name: Retrieve running config from Cisco switch
-  hosts: ros-dndesktop-sw01
+  hosts: Cisco Network Switches
   gather_facts: no
   connection: network_cli
   vars:
