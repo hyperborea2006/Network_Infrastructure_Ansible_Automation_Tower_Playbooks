@@ -1,7 +1,7 @@
 ---
 - name: Retrieve running config from Cisco IOS switches
   gather_facts: no  # typically not needed for network devices
-  hosts: Roseland_Switches
+  hosts: ros-dndesktop-sw01
   connection: network_cli
   vars:
     ansible_network_os: ios
