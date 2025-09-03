@@ -1,6 +1,6 @@
 ---
 - name: Retrieve Cisco IOS running configuration
-  inventories: Cisco Network Switches          # This should match a host or group in AAP inventory
+  hosts: ros-dndesktop-sw01          # This should match a host or group in AAP inventory
   gather_facts: no
   connection: network_cli       # Use network_cli since AAP passes connection method
   tasks:
