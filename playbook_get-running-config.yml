@@ -1,16 +1,15 @@
 ---
-- name: Retrieve running config from Cisco IOS switches
-  gather_facts: no  # typically not needed for network devices
-  hosts: ros-dndesktop-sw01
-  connection: network_cli
-  vars:
-    ansible_network_os: ios
+- name: Retrieve Cisco IOS running configuration
+  inventories: Cisco Network Switches          # This should match a host or group in AAP inventory
+  gather_facts: no
+  connection: network_cli       # Use network_cli since AAP passes connection method
   tasks:
-    - name: Get running configuration from Cisco switch with cli_command
-      ansible.netcommon.cli_command:
-        command: show running-config
+    - name: Get running config from Cisco IOS device
+      cisco.ios.ios_command:
+        commands:
+          - show running-config
       register: running_config_output
 
-    - name: Show running config output
+    - name: Display running configuration
       debug:
-        var: run_cfg.stdout_lines
+        var: running_config_output.stdout[0]
