@@ -5,8 +5,8 @@
   connection: network_cli
   vars:
     ansible_network_os: cisco.ios.ios
-    ansible_user: my_username
-    ansible_password: my_password
+    ansible_user: "{{my_username}}"
+    ansible_password: "{{my_password}}"
     ansible_become: yes
     ansible_become_method: enable
     #ansible_become_password: your_enable_password
