@@ -11,7 +11,6 @@
         command: show running-config
       register: running_config_output
 
-    - name: Save running config to file
-      copy:
-        content: "{{ running_config_output.stdout[0] }}"
-        dest: "./configs/{{ inventory_hostname }}-running-config.txt"
+    - name: Show running config output
+      debug:
+        var: run_cfg.stdout_lines
