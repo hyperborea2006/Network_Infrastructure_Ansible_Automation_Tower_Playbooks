@@ -1,6 +1,6 @@
 ---
 - name: Retrieve running config from Cisco IOS switches
-  hosts: Cisco Network Switches
+  hosts: roseland_switches
   gather_facts: no  # typically not needed for network devices
   connection: network_cli
   vars:
