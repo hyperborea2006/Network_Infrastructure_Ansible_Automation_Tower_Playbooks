@@ -20,8 +20,10 @@
 
     - name: Get the running configuration
       cisco.ios.config:
+        running-config:
       register: running_config_output
 
     - name: Display running configuration
       debug:
-        var: running_config_output.stdout[0]
+        #var: running_config_output.stdout[0]
+        var: running_config_output
