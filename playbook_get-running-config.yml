@@ -20,7 +20,7 @@
 
     - name: Get the running configuration
       cisco.ios.config:
-        running-config:
+        
       register: running_config_output
 
     - name: Display running configuration
