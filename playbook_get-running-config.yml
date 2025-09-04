@@ -12,10 +12,14 @@
     #ansible_become_password: your_enable_password
   tasks:
 
+    # - name: Get the running configuration
+    #   cisco.ios.ios_command:
+    #     commands:
+    #       - show running-config
+    #   register: running_config_output
+
     - name: Get the running configuration
-      cisco.ios.ios_command:
-        commands:
-          - show running-config
+      cisco.ios.config:
       register: running_config_output
 
     - name: Display running configuration
