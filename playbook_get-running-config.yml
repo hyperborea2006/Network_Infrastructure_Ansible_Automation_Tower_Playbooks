@@ -1,6 +1,6 @@
 ---
 - name: Retrieve running config from Cisco switch
-  hosts: Roseland
+  hosts: "{{my_hosts}}"
   gather_facts: no
   connection: network_cli
   vars:
