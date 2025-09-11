@@ -1,0 +1,25 @@
+---
+- name: Retrieve running config from Cisco switch
+  hosts: "{{my_hosts}}"
+  gather_facts: no
+  connection: network_cli
+  vars:
+    ansible_network_os: cisco.ios.ios
+    ansible_user: "{{my_username}}"
+    ansible_password: "{{my_password}}"
+    ansible_become: yes
+    ansible_become_method: enable
+    #ansible_become_password: your_enable_password
+  tasks:
+
+     - name: Run IOS Command
+       cisco.ios.ios_command:
+         commands:
+           - "{{my_commands}}"
+       register: my_commands__output
+
+
+
+     - name: Display commands output
+       debug:
+        var: my_commands__output.stdout[0]
